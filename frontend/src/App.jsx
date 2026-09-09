@@ -28,8 +28,8 @@ const [editText, setEditText] = useState('')
   const handleAuth = async () => {
     try {
       const url = isLogin
-        ? 'http://localhost:5000/api/auth/login'
-        : 'http://localhost:5000/api/auth/register'
+        ? 'https://mern-task-manager-production-4ee5.up.railway.app/api/auth/login'
+        : 'https://mern-task-manager-production-4ee5.up.railway.app/api/auth/register'
 
       const body = isLogin
         ? { email, password }
@@ -79,7 +79,7 @@ const [editText, setEditText] = useState('')
 
   setLoading(true)
 
-  fetch('http://localhost:5000/api/tasks', {
+  fetch('https://mern-task-manager-production-4ee5.up.railway.app/api/tasks', {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -106,7 +106,7 @@ const [editText, setEditText] = useState('')
     if (task.trim() === '') return
 
     try {
-      const response = await fetch('http://localhost:5000/api/tasks', {
+      const response = await fetch('https://mern-task-manager-production-4ee5.up.railway.app/api/tasks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -135,7 +135,7 @@ const [editText, setEditText] = useState('')
   const toggleTask = async (id, completed) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/tasks/${id}`,
+        `https://mern-task-manager-production-4ee5.up.railway.app/api/tasks/${id}`,
         {
           method: 'PUT',
           headers: {
@@ -169,7 +169,7 @@ const updateTask = async (id) => {
 
   try {
     const response = await fetch(
-      `http://localhost:5000/api/tasks/${id}`,
+      `https://mern-task-manager-production-4ee5.up.railway.app/api/tasks/${id}`,
       {
         method: 'PUT',
         headers: {
@@ -206,7 +206,7 @@ const updateTask = async (id) => {
 
   const deleteTask = async (id) => {
     try {
-      await fetch(`http://localhost:5000/api/tasks/${id}`, {
+      await fetch(`https://mern-task-manager-production-4ee5.up.railway.app/api/tasks/${id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,

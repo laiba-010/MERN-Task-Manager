@@ -18,7 +18,9 @@ mongoose.connect(process.env.MONGODB_URI)
   })
 
 // Middleware
-app.use(cors())
+app.use(cors({
+  origin: 'https://melodic-gecko-16134f.netlify.app'
+}))
 app.use(express.json())
 
 // Authentication routes
@@ -127,7 +129,7 @@ app.delete('/api/tasks/:id', authMiddleware, async (req, res) => {
 })
 
 // Start server
-const PORT = 5000
+const PORT = process.env.PORT || 5000
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`)
